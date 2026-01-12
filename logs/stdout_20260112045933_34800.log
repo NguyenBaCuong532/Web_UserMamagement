@@ -1,0 +1,78 @@
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1,800ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      CREATE DATABASE [UserManagementDb];
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (115ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      IF SERVERPROPERTY('EngineEdition') <> 5
+      BEGIN
+          ALTER DATABASE [UserManagementDb] SET READ_COMMITTED_SNAPSHOT ON;
+      END;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (377ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Users] (
+          [Id] int NOT NULL IDENTITY,
+          [Code] nvarchar(50) NOT NULL,
+          [FullName] nvarchar(200) NOT NULL,
+          [DateOfBirth] date NOT NULL,
+          [Email] nvarchar(200) NOT NULL,
+          [PhoneNumber] nvarchar(20) NOT NULL,
+          [Address] nvarchar(500) NOT NULL,
+          CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX [IX_Users_Code] ON [Users] ([Code]);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX [IX_Users_Email] ON [Users] ([Email]);
+info: Program[0]
+      Application starting...
+info: Program[0]
+      Content Root: C:\Users\Cuongnb\source\repos\Web_App_UserManagement\Web_App_UserManagement
+info: Program[0]
+      Environment: Development
+info: Program[0]
+      Application configured successfully. Starting...
+warn: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[16]
+      The WebRootPath was not found: C:\Users\Cuongnb\source\repos\Web_App_UserManagement\Web_App_UserManagement\wwwroot. Static files may be unavailable.
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\Cuongnb\source\repos\Web_App_UserManagement\Web_App_UserManagement
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [u].[Id], [u].[Address], [u].[Code], [u].[DateOfBirth], [u].[Email], [u].[FullName], [u].[PhoneNumber]
+      FROM [Users] AS [u]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (30ms) [Parameters=[@__user_Code_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [Users] AS [u]
+              WHERE [u].[Code] = @__user_Code_0) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__user_Email_0='?' (Size = 200)], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [Users] AS [u]
+              WHERE [u].[Email] = @__user_Email_0) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (138ms) [Parameters=[@p0='?' (Size = 500), @p1='?' (Size = 50), @p2='?' (DbType = Date), @p3='?' (Size = 200), @p4='?' (Size = 200), @p5='?' (Size = 20)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      INSERT INTO [Users] ([Address], [Code], [DateOfBirth], [Email], [FullName], [PhoneNumber])
+      OUTPUT INSERTED.[Id]
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+info: Web_App_UserManagement.Services.DbUserRepository[0]
+      User added: string
+info: Web_App_UserManagem
