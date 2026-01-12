@@ -21,7 +21,7 @@ try
 
     var app = builder.Build();
 
-    // Ensure database is created and migrations are applied
+    // Tự động tạo database nếu chưa tồn tại (không dùng migrations)
     using (var scope = app.Services.CreateScope())
     {
         var services = scope.ServiceProvider;
@@ -29,13 +29,11 @@ try
         {
             var context = services.GetRequiredService<ApplicationDbContext>();
             context.Database.EnsureCreated();
-            // Uncomment the line below if you want to use migrations instead of EnsureCreated
-            // context.Database.Migrate();
         }
         catch (Exception ex)
         {
             var dbLogger = services.GetRequiredService<ILogger<Program>>();
-            dbLogger.LogError(ex, "An error occurred while creating or migrating the database.");
+            dbLogger.LogError(ex, "An error occurred while creating the database.");
         }
     }
 

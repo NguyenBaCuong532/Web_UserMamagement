@@ -141,3 +141,4 @@ C:\Users\Cuongnb\source\repos\Web_App_UserManagement\Web_App_UserManagement\bin\
 C:\Users\Cuongnb\source\repos\Web_App_UserManagement\Web_App_UserManagement\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Cuongnb\source\repos\Web_App_UserManagement\Web_App_UserManagement\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\Cuongnb\source\repos\Web_App_UserManagement\Web_App_UserManagement\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Cuongnb\source\repos\Web_App_UserManagement\Web_App_UserManagement\obj\Debug\net8.0\Web_App_UserManagement.sourcelink.json

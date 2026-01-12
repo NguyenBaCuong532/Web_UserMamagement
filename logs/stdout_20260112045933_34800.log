@@ -75,4 +75,73 @@ info: Microsoft.EntityFrameworkCore.Database.Command[20101]
       VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
 info: Web_App_UserManagement.Services.DbUserRepository[0]
       User added: string
-info: Web_App_UserManagem
+info: Web_App_UserManagement.Controllers.UserApiController[0]
+      User created: string
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [u].[Id], [u].[Address], [u].[Code], [u].[DateOfBirth], [u].[Email], [u].[FullName], [u].[PhoneNumber]
+      FROM [Users] AS [u]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (22ms) [Parameters=[@__user_Code_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [Users] AS [u]
+              WHERE [u].[Code] = @__user_Code_0) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (9ms) [Parameters=[@__user_Email_0='?' (Size = 200)], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [Users] AS [u]
+              WHERE [u].[Email] = @__user_Email_0) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (24ms) [Parameters=[@p0='?' (Size = 500), @p1='?' (Size = 50), @p2='?' (DbType = Date), @p3='?' (Size = 200), @p4='?' (Size = 200), @p5='?' (Size = 20)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      INSERT INTO [Users] ([Address], [Code], [DateOfBirth], [Email], [FullName], [PhoneNumber])
+      OUTPUT INSERTED.[Id]
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+info: Web_App_UserManagement.Services.DbUserRepository[0]
+      User added: 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [u].[Id], [u].[Address], [u].[Code], [u].[DateOfBirth], [u].[Email], [u].[FullName], [u].[PhoneNumber]
+      FROM [Users] AS [u]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[@__code_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[Id], [u].[Address], [u].[Code], [u].[DateOfBirth], [u].[Email], [u].[FullName], [u].[PhoneNumber]
+      FROM [Users] AS [u]
+      WHERE [u].[Code] = @__code_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [u].[Id], [u].[Address], [u].[Code], [u].[DateOfBirth], [u].[Email], [u].[FullName], [u].[PhoneNumber]
+      FROM [Users] AS [u]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@__code_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[Id], [u].[Address], [u].[Code], [u].[DateOfBirth], [u].[Email], [u].[FullName], [u].[PhoneNumber]
+      FROM [Users] AS [u]
+      WHERE [u].[Code] = @__code_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      DELETE FROM [Users]
+      OUTPUT 1
+      WHERE [Id] = @p0;
+info: Web_App_UserManagement.Services.DbUserRepository[0]
+      User deleted: string
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [u].[Id], [u].[Address], [u].[Code], [u].[DateOfBirth], [u].[Email], [u].[FullName], [u].[PhoneNumber]
+      FROM [Users] AS [u]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@__code_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [u].[Id], [u].[Address], [u].[Code], [u].[DateOfBirth], [u].[Email], [u].[FullName], [u].[PhoneNumber]
+      FROM [Users] AS [u]
+      WHERE [u].[Code] = @__code_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20
